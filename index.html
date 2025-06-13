@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cafe Map</title>
+  <!-- Thư viện Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <header>
+    <div class="logo">☕ Cafe Map</div>
+  <!--  desktop  -->
+<div id="filters-desktop" class="filter-group desktop-only">
+  <label><input type="checkbox" id="high-rating" /> Đánh Giá Cao (>4)</label>
+  <label><input type="checkbox" id="nearby" /> Gần Đây (Bán kính 2km)</label>
+  <label><input type="checkbox" id="is-open-now"/> Quán đang mở </label>
+
+</div>
+
+<!--  mobile  -->
+<div id="filters-mobile" class="filter-group mobile-only">
+  <div class="dropdown-filter">
+    <div class="dropdown-toggle">Bộ lọc &#9662;</div>
+    <div class="dropdown-content">
+      <label><input type="checkbox" id="high-rating-m" /> Đánh Giá Cao (≥4.5)</label>
+      <label><input type="checkbox" id="nearby-m" /> Gần Bạn (Bán kính 2km)</label>
+      <label><input type="checkbox" id="is-open-now-m"/> Quán đang mở </label>
+
+    </div>
+  </div>
+</div>
+
+
+  <div id="type-filter">
+      <label>Loại quán</label>
+      <select id="type-select">
+        <option value="">Tất cả</option>
+        <option value="Cafe cổ điển">Cafe cổ điển</option>
+        <option value="Cafe hiện đại">Cafe hiện đại</option>
+        <option value="Cafe thú cưng">Cafe thú cưng</option>
+      </select>
+    </div>
+
+  <div id="price-filter">
+    <label>Giá trung bình</label>
+    <select id="price-select">
+      <option value="">Tất cả</option>
+      <option value="low-high">Thấp đến Cao</option>
+      <option value="high-low">Cao đến Thấp</option>
+      <option value="range-0-50">0đ - 50.000đ</option>
+      <option value="range-50-100">50.000đ - 100.000đ</option>
+      <option value="range-100-150">100.000đ - 150.000đ</option>
+      <option value="over150">Trên 150.000đ</option>
+    </select>
+  </div>
+
+  <button id="filter-btn"><strong>Lọc</strong></button>
+</div>
+
+
+  </header>
+  <main>
+    <!-- Khu vực bản đồ -->
+  <section id="map"></section>
+  <!-- Danh sách địa điểm -->
+  <aside id="list">
+    <h3>Danh sách quán:</h3>
+    <ul id="location-list"></ul>
+    
+  </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
